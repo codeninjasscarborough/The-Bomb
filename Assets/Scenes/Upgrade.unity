@@ -520,6 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   canvas: {fileID: 0}
+  bombMesh: {fileID: 8057916104170538464}
   bombLevelText: {fileID: 8057916104170538463}
   bombRatingText: {fileID: 8057916104170538462}
   upgradeButtonText: {fileID: 8057916104170538461}
@@ -694,6 +695,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalMoneyText: {fileID: 182929963331717458}
+  damageText: {fileID: 182929963331717464}
+  moneyMulttext: {fileID: 182929963331717463}
+  riskText: {fileID: 182929963331717462}
+  ratingText: {fileID: 182929963331717461}
+  dataBase: {fileID: 11400000, guid: 140c90891122c1642b4ae7afc809461e, type: 2}
+--- !u!114 &182929963331717461 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2233105156667698263, guid: 4da9436dfbfaf4d4b8dc5d1e3646d62c, type: 3}
+  m_PrefabInstance: {fileID: 182929963331717457}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &182929963331717462 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7952798414245663470, guid: 4da9436dfbfaf4d4b8dc5d1e3646d62c, type: 3}
+  m_PrefabInstance: {fileID: 182929963331717457}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &182929963331717463 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3494097775820411016, guid: 4da9436dfbfaf4d4b8dc5d1e3646d62c, type: 3}
+  m_PrefabInstance: {fileID: 182929963331717457}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &182929963331717464 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8230351895071992529, guid: 4da9436dfbfaf4d4b8dc5d1e3646d62c, type: 3}
+  m_PrefabInstance: {fileID: 182929963331717457}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8057916104170538460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -742,6 +792,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomb Upgrade
       objectReference: {fileID: 0}
+    - target: {fileID: 5273105683400441030, guid: 25489b6833e753045b7a3d4fcf3cf9c8, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5524628880287526097, guid: 15f916550f169534292bfda685babab0, type: 3}
     - target: {fileID: 7362850390499795607, guid: 25489b6833e753045b7a3d4fcf3cf9c8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -864,6 +918,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!33 &8057916104170538464 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 5273105683400441030, guid: 25489b6833e753045b7a3d4fcf3cf9c8, type: 3}
+  m_PrefabInstance: {fileID: 8057916104170538460}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

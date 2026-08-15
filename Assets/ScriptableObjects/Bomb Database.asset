@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Bomb Database
   m_EditorClassIdentifier: 
   allBombs:
+  - {fileID: 11400000, guid: 05315bb0714df5f45b3a16a6a04f134e, type: 2}
   - {fileID: 11400000, guid: 0bdfe96bc771a904faa5466ada7d6af1, type: 2}
   - {fileID: 11400000, guid: 05315bb0714df5f45b3a16a6a04f134e, type: 2}

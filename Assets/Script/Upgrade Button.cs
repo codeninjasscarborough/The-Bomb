@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 using UnityEngine.SceneManagement;
 
 public class UpgradeButton : MonoBehaviour
@@ -9,11 +10,14 @@ public class UpgradeButton : MonoBehaviour
     public Canvas canvas;
 
     [Header("Upgrade panel")]
+    public MeshFilter bombMesh;
     public TMP_Text bombLevelText;
     public TMP_Text bombRatingText;
     public TMP_Text upgradeButtonText;
 
     public BombDataBase dataBase;
+
+    public static event Action<int> OnBombUpgraded;
 
     public static int bombLevel = 0;
 
@@ -61,9 +65,11 @@ public class UpgradeButton : MonoBehaviour
     public void UpdateClicked(){
         if (MoneySystem.instance.BuyingSomething(dataBase.GetBombAtIndex(bombLevel).cost)){
             bombLevel++;
+            bombMesh.mesh = dataBase.GetBombAtIndex(bombLevel).bombMesh;
            bombLevelText.text = $"Level {dataBase.GetBombAtIndex(bombLevel).levelNum} Bomb";
            bombRatingText.text = $"{dataBase.GetBombAtIndex(bombLevel).rating}/10";
            upgradeButtonText.text = $"Upgrade ${dataBase.GetBombAtIndex(bombLevel).cost}"; 
+           OnBombUpgraded?.Invoke(bombLevel);
         }
     }
 

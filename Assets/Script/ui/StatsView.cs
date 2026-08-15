@@ -11,7 +11,7 @@ public class StatsView : MonoBehaviour
    public TMP_Text riskText;
    public TMP_Text ratingText;
    
-
+    public BombDataBase dataBase;
 
 
     void Start()
@@ -28,6 +28,7 @@ public class StatsView : MonoBehaviour
             MoneySystem.OnMoneyAdded += UpdateMoneyText;
             MoneySystem.OnMoneySpent += UpdateMoneyText;
         }
+        UpgradeButton.OnBombUpgraded += UpdateBombStats;
    }
    
    private void OnDisable()
@@ -37,10 +38,20 @@ if (MoneySystem.instance != null) {
             MoneySystem.OnMoneySpent -= UpdateMoneyText;
 
         }
+        UpgradeButton.OnBombUpgraded -= UpdateBombStats;
    }
 
    private void UpdateMoneyText(float money)
    {
     totalMoneyText.text = "Total Money: $" + money;
    }
+
+   private void UpdateBombStats(int index)
+    {
+        damageText.text = "Damage: " + dataBase.GetBombAtIndex(index).damage;
+        moneyMulttext.text = "Money Multipler: " + dataBase.GetBombAtIndex(index).moneyMult;
+        riskText.text = $"Risk: {dataBase.GetBombAtIndex(index).risk} in 1";
+        ratingText.text = $"Rating: {dataBase.GetBombAtIndex(index).rating} / 10";
+
+    }
 }
