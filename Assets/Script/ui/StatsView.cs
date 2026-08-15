@@ -6,6 +6,13 @@ using TMPro;
 public class StatsView : MonoBehaviour
 {
    public TMP_Text totalMoneyText;
+   public TMP_Text damageText;
+   public TMP_Text moneyMulttext;
+   public TMP_Text riskText;
+   public TMP_Text ratingText;
+   
+
+
 
     void Start()
     {
@@ -20,7 +27,6 @@ public class StatsView : MonoBehaviour
         if (MoneySystem.instance != null) {
             MoneySystem.OnMoneyAdded += UpdateMoneyText;
             MoneySystem.OnMoneySpent += UpdateMoneyText;
-
         }
    }
    

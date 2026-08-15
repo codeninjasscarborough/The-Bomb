@@ -13,7 +13,9 @@ public class UpgradeButton : MonoBehaviour
     public TMP_Text bombRatingText;
     public TMP_Text upgradeButtonText;
 
-    public static int bombLevel = 1;
+    public BombDataBase dataBase;
+
+    public static int bombLevel = 0;
 
     void Awake()
     {
@@ -57,11 +59,11 @@ public class UpgradeButton : MonoBehaviour
     // Start is called before the first frame update
 
     public void UpdateClicked(){
-        if (MoneySystem.instance.BuyingSomething(5)){
+        if (MoneySystem.instance.BuyingSomething(dataBase.GetBombAtIndex(bombLevel).cost)){
             bombLevel++;
-           bombLevelText.text = $"Level {bombLevel} Bomb";
-           bombRatingText.text = $"{bombLevel / 10f}/10";
-           upgradeButtonText.text = $"Upgrade ${5*bombLevel}"; 
+           bombLevelText.text = $"Level {dataBase.GetBombAtIndex(bombLevel).levelNum} Bomb";
+           bombRatingText.text = $"{dataBase.GetBombAtIndex(bombLevel).rating}/10";
+           upgradeButtonText.text = $"Upgrade ${dataBase.GetBombAtIndex(bombLevel).cost}"; 
         }
     }
 

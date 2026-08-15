@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a409d0ca29b95540ba5b322dcd9b5f6, type: 3}
   m_Name: Bomb Database
   m_EditorClassIdentifier: 
-  allBombs: []
+  allBombs:
+  - {fileID: 11400000, guid: 0bdfe96bc771a904faa5466ada7d6af1, type: 2}
+  - {fileID: 11400000, guid: 05315bb0714df5f45b3a16a6a04f134e, type: 2}

@@ -523,6 +523,7 @@ MonoBehaviour:
   bombLevelText: {fileID: 8057916104170538463}
   bombRatingText: {fileID: 8057916104170538462}
   upgradeButtonText: {fileID: 8057916104170538461}
+  dataBase: {fileID: 11400000, guid: 140c90891122c1642b4ae7afc809461e, type: 2}
 --- !u!224 &1235456425 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6395074356167026553, guid: 4da9436dfbfaf4d4b8dc5d1e3646d62c, type: 3}

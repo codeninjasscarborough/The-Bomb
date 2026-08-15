@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1defd7ae072e47949a591a3d0e8b1022, type: 3}
   m_Name: Bomb Level 2
   m_EditorClassIdentifier: 
-  levelNum: 0
-  rating: 0
-  cost: 0
-  bombMesh: {fileID: 0}
-  damage: 0
-  moneyMult: 0
+  levelNum: 2
+  rating: 0.2
+  cost: 25
+  bombMesh: {fileID: -6153881835920628505, guid: d02278f3f2ac6914f8e470b20377d6bf, type: 3}
+  damage: 250
+  moneyMult: 1.1
   risk: 0
-  explosionRadius: 0
-  moveSpeedDuringDrop: 0
-  moveSpeedBeforeDrop: 0
-  gravityScale: 0
+  explosionRadius: 2
+  moveSpeedDuringDrop: 3.5
+  moveSpeedBeforeDrop: 25
+  gravityScale: -5
