@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public Animator anim;
-
+    public Canvas gameCanvas;
     
 
 public bool explodeDone = false;
@@ -41,6 +41,9 @@ public bool explodeDone = false;
         Debug.Log("hi");
         
     }
+
+    public void DisableCanvas() => gameCanvas.gameObject.SetActive(false);
+    public void EnableCanvas() => gameCanvas.gameObject.SetActive(true);
 
     public void SetAnimTrigger(Animator animator, string trigger)
     {

@@ -19,6 +19,9 @@ public class Bomb : MonoBehaviour
     [SerializeField] private float radius = 1f;
     [SerializeField] private LayerMask affectedLayer;
     [SerializeField] private TMP_Text buildingDestroyed;
+    [SerializeField] private TMP_Text moneyGained;
+    [SerializeField] private TMP_Text totalMoney;
+
     
     
     private bool letGo = false;
@@ -26,7 +29,7 @@ public class Bomb : MonoBehaviour
     private int numDestroyed = 0;
 
     private Coroutine explodeCoroutine = null;
-
+    
     void Start()
     {
         physic = GetComponent<Rigidbody>();
@@ -93,10 +96,18 @@ public class Bomb : MonoBehaviour
         {
             Destroy(obj.transform.gameObject);
             numDestroyed += 1;
+            
         }
         Debug.Log(numDestroyed);
         buildingDestroyed.text = "Things Destroyed: " + numDestroyed;
         GetComponent<MeshRenderer>().enabled = false;
+        MoneySystem.instance.AddMoney(numDestroyed);
+        moneyGained.text = "Money Gained: $" + numDestroyed;
+        totalMoney.text = "Total Money: $" + MoneySystem.instance.CheckingMoney();
+        Debug.Log(MoneySystem.instance.CheckingMoney());
+
+        
+        
 
         Instantiate(explode, transform.position, transform.rotation);
         Instantiate(fire, transform.position, transform.rotation);
