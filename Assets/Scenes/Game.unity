@@ -665,6 +665,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &811758329 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9097145416911194857, guid: 1bb766a56515f8d42ba5ee4ed4bf8806, type: 3}
+  m_PrefabInstance: {fileID: 3242805130498554336}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89112d914cfa955418936e1542478423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &824692588
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,6 +841,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1602211958}
   gameCanvas: {fileID: 739340510}
+  dataBase: {fileID: 11400000, guid: 140c90891122c1642b4ae7afc809461e, type: 2}
+  bomb: {fileID: 811758329}
   explodeDone: 0
 --- !u!4 &831886670
 Transform:
@@ -2276,9 +2289,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1602211958}
   canvas: {fileID: 0}
+  bombMesh: {fileID: 0}
   bombLevelText: {fileID: 0}
   bombRatingText: {fileID: 0}
   upgradeButtonText: {fileID: 0}
+  dataBase: {fileID: 0}
 --- !u!1 &2015227939
 GameObject:
   m_ObjectHideFlags: 0
@@ -2520,8 +2535,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8997617684249524816, guid: 1bb766a56515f8d42ba5ee4ed4bf8806, type: 3}
       propertyPath: m_Name
-      value: Level 1 Bomb
+      value: ' Bomb'
       objectReference: {fileID: 0}
+    - target: {fileID: 9097145416911194857, guid: 1bb766a56515f8d42ba5ee4ed4bf8806, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 0bdfe96bc771a904faa5466ada7d6af1, type: 2}
     - target: {fileID: 9097145416911194857, guid: 1bb766a56515f8d42ba5ee4ed4bf8806, type: 3}
       propertyPath: animator
       value: 

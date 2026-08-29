@@ -8,6 +8,6 @@ public class BombDataBase : ScriptableObject
     [SerializeField] private List<BombData> allBombs;
 
     public BombData GetBombAtIndex(int index) => allBombs[index];
-    
+    public int BombCount => allBombs.Count;
 
 }

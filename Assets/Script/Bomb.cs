@@ -13,15 +13,12 @@ public class Bomb : MonoBehaviour
     [SerializeField] private ParticleSystem fire;
     [SerializeField] private Animator flashbangAnim;
     [SerializeField] private Animator explodeAnim;
-    [SerializeField] private float moveSpeedB = 25f;
-    [SerializeField] private float moveSpeedL = 3f;
-    [SerializeField] private float gravityScale = -5f;
-    [SerializeField] private float radius = 1f;
     [SerializeField] private LayerMask affectedLayer;
     [SerializeField] private TMP_Text buildingDestroyed;
     [SerializeField] private TMP_Text moneyGained;
     [SerializeField] private TMP_Text totalMoney;
 
+    public BombData data;
     
     
     private bool letGo = false;
@@ -33,7 +30,7 @@ public class Bomb : MonoBehaviour
     void Start()
     {
         physic = GetComponent<Rigidbody>();
-        
+        GetComponent<MeshFilter>().mesh = data.bombMesh;
     }
 
     void Update()
@@ -63,10 +60,10 @@ public class Bomb : MonoBehaviour
 
         if (!letGo)
         {
-            physic.velocity = new Vector3(movement.x * moveSpeedB, physic.velocity.y, movement.z * moveSpeedB);
+            physic.velocity = new Vector3(movement.x * data.moveSpeedBeforeDrop, physic.velocity.y, movement.z * data.moveSpeedBeforeDrop);
         } else if (letGo)
         {
-            physic.velocity = new Vector3(movement.x * moveSpeedL, physic.velocity.y, movement.z * moveSpeedL);
+            physic.velocity = new Vector3(movement.x * data.moveSpeedDuringDrop, physic.velocity.y, movement.z * data.moveSpeedDuringDrop);
         }
 
         ApplyGravity();
@@ -75,7 +72,7 @@ public class Bomb : MonoBehaviour
     void ApplyGravity()
     {
         if(!letGo) return;
-        physic.AddForce(Vector3.down * gravityScale);
+        physic.AddForce(Vector3.down * data.gravityScale);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -91,7 +88,7 @@ public class Bomb : MonoBehaviour
         GameManager.instance.SetAnimTrigger(flashbangAnim, "Flash");
 
 
-        var objectsInExplosion = Physics.SphereCastAll(transform.position, radius, Vector3.up, radius, affectedLayer);
+        var objectsInExplosion = Physics.SphereCastAll(transform.position, data.explosionRadius, Vector3.up, data.explosionRadius, affectedLayer);
         foreach(var obj in objectsInExplosion)
         {
             Destroy(obj.transform.gameObject);
@@ -101,7 +98,7 @@ public class Bomb : MonoBehaviour
         Debug.Log(numDestroyed);
         buildingDestroyed.text = "Things Destroyed: " + numDestroyed;
         GetComponent<MeshRenderer>().enabled = false;
-        MoneySystem.instance.AddMoney(numDestroyed);
+        MoneySystem.instance.AddMoney(numDestroyed * data.moneyMult);
         moneyGained.text = "Money Gained: $" + numDestroyed;
         totalMoney.text = "Total Money: $" + MoneySystem.instance.CheckingMoney();
         Debug.Log(MoneySystem.instance.CheckingMoney());
@@ -118,7 +115,6 @@ public class Bomb : MonoBehaviour
         
     }
 
-    
 
     
 }

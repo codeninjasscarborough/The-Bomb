@@ -52,6 +52,7 @@ public class UpgradeButton : MonoBehaviour
     {
         
         SceneManager.LoadScene(0);
+        GameManager.instance.UpgradeBomb();
         Debug.Log("hi");
         
     }

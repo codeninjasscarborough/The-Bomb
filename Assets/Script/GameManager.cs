@@ -8,7 +8,12 @@ public class GameManager : MonoBehaviour
 
     public Animator anim;
     public Canvas gameCanvas;
-    
+
+    public BombDataBase dataBase;
+    private static int bombIndex;
+
+    public Bomb bomb;
+
 
 public bool explodeDone = false;
 
@@ -18,11 +23,23 @@ public bool explodeDone = false;
     {
         if (instance == null)
         {
-            instance = this;  
-       
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+     
         } else
         {
              Destroy(this);
+            return;
+        }
+
+        if (gameCanvas == null)
+        {
+            gameCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        }
+
+        if (bomb == null)
+        {
+            bomb = GameObject.Find("Bomb").GetComponent<Bomb>();
         }
         
     }
@@ -48,5 +65,11 @@ public bool explodeDone = false;
     public void SetAnimTrigger(Animator animator, string trigger)
     {
         animator.SetTrigger(trigger);
+    }
+
+    public void UpgradeBomb()
+    {
+        bombIndex = Mathf.Clamp(bombIndex + 1, 0, dataBase.BombCount);
+        bomb.data = dataBase.GetBombAtIndex(bombIndex);
     }
 }

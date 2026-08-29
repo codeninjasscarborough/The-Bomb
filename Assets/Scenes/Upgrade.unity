@@ -760,6 +760,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1907187839687601019, guid: 25489b6833e753045b7a3d4fcf3cf9c8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -51.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4406172442598020235, guid: 25489b6833e753045b7a3d4fcf3cf9c8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1

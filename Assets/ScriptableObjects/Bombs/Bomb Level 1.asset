@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNum: 1
   rating: 0.1
-  cost: 5
+  cost: 1
   bombMesh: {fileID: 5524628880287526097, guid: 15f916550f169534292bfda685babab0, type: 3}
   damage: 100
-  moneyMult: 1.1
+  moneyMult: 1
   risk: 0
   explosionRadius: 1
   moveSpeedDuringDrop: 3
