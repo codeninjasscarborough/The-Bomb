@@ -10,6 +10,7 @@ public class UpgradeButton : MonoBehaviour
     public Canvas canvas;
 
     [Header("Upgrade panel")]
+    public bool useUpgradePanel = true;
     public MeshFilter bombMesh;
     public TMP_Text bombLevelText;
     public TMP_Text bombRatingText;
@@ -64,7 +65,8 @@ public class UpgradeButton : MonoBehaviour
     // Start is called before the first frame update
 
     public void UpdateClicked(){
-        if (MoneySystem.instance.BuyingSomething(dataBase.GetBombAtIndex(bombLevel).cost)){
+        Debug.Log($"Clicked {useUpgradePanel} and {MoneySystem.instance.BuyingSomething(dataBase.GetBombAtIndex(bombLevel).cost)}");    
+        if (useUpgradePanel && MoneySystem.instance.BuyingSomething(dataBase.GetBombAtIndex(bombLevel).cost)){
             bombLevel++;
             bombMesh.mesh = dataBase.GetBombAtIndex(bombLevel).bombMesh;
            bombLevelText.text = $"Level {dataBase.GetBombAtIndex(bombLevel).levelNum} Bomb";

@@ -2289,11 +2289,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1602211958}
   canvas: {fileID: 0}
+  useUpgradePanel: 0
   bombMesh: {fileID: 0}
   bombLevelText: {fileID: 0}
   bombRatingText: {fileID: 0}
   upgradeButtonText: {fileID: 0}
-  dataBase: {fileID: 0}
+  dataBase: {fileID: 11400000, guid: 140c90891122c1642b4ae7afc809461e, type: 2}
 --- !u!1 &2015227939
 GameObject:
   m_ObjectHideFlags: 0

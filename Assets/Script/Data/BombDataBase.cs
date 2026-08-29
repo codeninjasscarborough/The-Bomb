@@ -7,7 +7,13 @@ public class BombDataBase : ScriptableObject
 {
     [SerializeField] private List<BombData> allBombs;
 
-    public BombData GetBombAtIndex(int index) => allBombs[index];
+    public BombData GetBombAtIndex(int index) {
+        if (index < BombCount)
+        {
+            return allBombs[index];
+        }
+        return null;
+    }
     public int BombCount => allBombs.Count;
 
 }

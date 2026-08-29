@@ -1,4 +1,5 @@
 using UnityEngine.SceneManagement;
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -15,20 +16,21 @@ public class GameManager : MonoBehaviour
     public Bomb bomb;
 
 
-public bool explodeDone = false;
+    public bool explodeDone = false;
 
 
-    
+
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
-     
-        } else
+            DontDestroyOnLoad(this);
+
+        }
+        else
         {
-             Destroy(this);
+            Destroy(this.gameObject);
             return;
         }
 
@@ -41,7 +43,7 @@ public bool explodeDone = false;
         {
             bomb = GameObject.Find("Bomb").GetComponent<Bomb>();
         }
-        
+
     }
 
 
@@ -53,14 +55,30 @@ public bool explodeDone = false;
 
     private void RestartGame()
     {
-        
+
         SceneManager.LoadScene(0);
         Debug.Log("hi");
-        
+
     }
 
-    public void DisableCanvas() => gameCanvas.gameObject.SetActive(false);
-    public void EnableCanvas() => gameCanvas.gameObject.SetActive(true);
+    public void DisableCanvas()
+    {
+        if (gameCanvas == null)
+        {
+            gameCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        }
+
+        gameCanvas.gameObject?.SetActive(false);
+    }
+    public void EnableCanvas()
+    {
+        if (gameCanvas == null)
+        {
+            gameCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        }
+
+        gameCanvas.gameObject?.SetActive(true);
+    }
 
     public void SetAnimTrigger(Animator animator, string trigger)
     {
@@ -69,7 +87,15 @@ public bool explodeDone = false;
 
     public void UpgradeBomb()
     {
+        StartCoroutine(UpgradeBombSafe());
+
+    }
+
+    private IEnumerator UpgradeBombSafe()
+    {
+        while (bomb == null) yield return null;
         bombIndex = Mathf.Clamp(bombIndex + 1, 0, dataBase.BombCount);
         bomb.data = dataBase.GetBombAtIndex(bombIndex);
+
     }
 }

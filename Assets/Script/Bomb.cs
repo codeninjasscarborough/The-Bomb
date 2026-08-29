@@ -22,7 +22,7 @@ public class Bomb : MonoBehaviour
     
     
     private bool letGo = false;
-    private bool canMove = true;
+    private bool canMove = false;
     private int numDestroyed = 0;
 
     private Coroutine explodeCoroutine = null;
@@ -35,6 +35,11 @@ public class Bomb : MonoBehaviour
 
     void Update()
     {
+        if(!letGo && !canMove)
+        {
+            if(GameManager.instance != null) canMove = true;
+            else return;
+        }
         GetInputs();
     }
 

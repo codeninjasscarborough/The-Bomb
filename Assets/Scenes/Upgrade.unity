@@ -519,7 +519,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  canvas: {fileID: 0}
+  canvas: {fileID: 910504853}
+  useUpgradePanel: 1
   bombMesh: {fileID: 8057916104170538464}
   bombLevelText: {fileID: 8057916104170538463}
   bombRatingText: {fileID: 8057916104170538462}
